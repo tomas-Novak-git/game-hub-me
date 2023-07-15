@@ -12,7 +12,7 @@ import { Genre } from "./hooks/useGenres";
 
 export interface GameQuery {
   genre: Genre | null;
-  platform: Platform | null;
+  parent_platform: Platform | null;
   sortOrder: string;
   searchText: string;
 }
@@ -52,9 +52,9 @@ function App() {
           <Flex marginBottom={5}>
             <Box marginRight={5}>
               <PlatformSelector
-                selectedPlatform={gameQuery.platform}
-                onSelectPlatform={(platform) =>
-                  setGameQuery({ ...gameQuery, platform })
+                selectedPlatform={gameQuery.parent_platform}
+                onSelectPlatform={(parent_platform) =>
+                  setGameQuery({ ...gameQuery, parent_platform })
                 }
               />
             </Box>
