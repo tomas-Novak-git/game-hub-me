@@ -6,7 +6,7 @@ interface Props {
 }
 
 const GameHeading = ({ gameQuery }: Props) => {
-  const heading = `${gameQuery.platform?.name || ""} ${
+  const heading = `${gameQuery.parent_platform?.name || ""} ${
     gameQuery.genre?.name || ""
   } Games`;
 
