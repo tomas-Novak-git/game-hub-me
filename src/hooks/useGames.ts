@@ -3,11 +3,10 @@ import useData from "./useData";
 import { Genre } from "./useGenres";
 
 export interface Platform {
-    id: number,
-    name: string;
-    slug: string;
+  id: number;
+  name: string;
+  slug: string;
 }
-
 
 export interface Game {
   id: number;
@@ -18,13 +17,18 @@ export interface Game {
   rating_top: number;
 }
 
-const useGames = (gameQuery: GameQuery) => useData<Game>('/games',
-{params: {
-  genres: gameQuery.genre?.id, 
-  parent_platforms: gameQuery.parent_platform?.id,
-  ordering: gameQuery.sortOrder,
-  search: gameQuery.searchText
-}},
-   [gameQuery]);
+const useGames = (gameQuery: GameQuery) =>
+  useData<Game>(
+    "/games",
+    {
+      params: {
+        genres: gameQuery.genre?.id,
+        parent_platforms: gameQuery.parent_platform?.id,
+        ordering: gameQuery.sortOrder,
+        search: gameQuery.searchText,
+      },
+    },
+    [gameQuery]
+  );
 
 export default useGames;
